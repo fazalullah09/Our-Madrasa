@@ -1,5 +1,5 @@
 // Language Management
-let currentLang = localStorage.getItem('selectedLang') || 'en';
+let currentLang = localStorage.getItem('selectedLang') || 'ur';
 
 function setLanguage(lang) {
     currentLang = lang;
