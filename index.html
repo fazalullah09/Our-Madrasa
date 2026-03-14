@@ -1,406 +1,338 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madrasa Arabiyya Taleem Ul Quran</title>
-    <!-- Modern Premium Fonts: Inter and Poppins -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- FontAwesome (Latest 6.5.1 for X-Twitter integration) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Madrasa Arabiyya Taleem Ul Quran | Digital Portal</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jameel-noori@1.1.2/jameel-noori.min.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-
-<body>
-
-    <!-- Scroll Progress -->
-    <div class="scroll-progress"></div>
-
-    <!-- Topbar for Language -->
-    <div class="top-bar">
-        <div class="container top-bar-inner">
-            <span class="top-info"><i class="fas fa-map-marker-alt"></i> Nagar Lasht, Drosh Chitral, Pakistan</span>
-            <div class="g-translate-wrapper">
-                <i class="fas fa-globe"></i>
-                <div id="google_translate_element"></div>
-            </div>
+<body class="loading">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-content">
+            <img src="logo.jpeg" alt="Logo" class="loader-logo">
+            <div class="loader-bar"></div>
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="main-header">
-        <div class="container header-content">
-            <div class="logo-box">
-                <div class="logo-anim">
-                    <img src="logo.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/100?text=Logo'">
-                </div>
-                <div class="brand-text">
-                    <h1 class="eng-main-title">Madrasa Arabiyya</h1>
-                    <span class="eng-sub-title">TALEEM UL QURAN</span>
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="brand">
+                <img src="logo.jpeg" alt="Logo" class="nav-logo">
+                <div class="brand-info">
+                    <h1 data-i18n="nav_brand">Madrasa Arabiyya</h1>
+                    <span data-i18n="nav_sub_brand">Taleem Ul Quran</span>
                 </div>
             </div>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#videos" class="nav-link">Media Programs</a></li>
-                    <li><a href="#donate" class="nav-link donation-btn-nav">Donate</a></li>
-                </ul>
+            <nav class="nav-links">
+                <a href="#home" class="active" data-i18n="nav_home">Home</a>
+                <a href="#about" data-i18n="nav_about">About</a>
+                <a href="#fatwa" data-i18n="nav_fatwa">Online Fatwa</a>
+                <a href="#staff" data-i18n="nav_staff">Our Staff</a>
+                <a href="#donate" class="donate-btn-nav" data-i18n="nav_donate">Donate Now</a>
             </nav>
 
-            <a href="https://www.facebook.com/share/1CFgXdtrns/" target="_blank" class="fb-social-btn">
-                <i class="fab fa-facebook-f"></i> Follow Page
-            </a>
-
-            <button class="menu-btn"><i class="fas fa-bars"></i></button>
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <button class="lang-current">
+                        <i class="fas fa-globe"></i>
+                        <span id="current-lang-label">English</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown">
+                        <li onclick="setLanguage('en')">English</li>
+                        <li onclick="setLanguage('ur')">اردو</li>
+                        <li onclick="setLanguage('ar')">العربية</li>
+                        <li onclick="setLanguage('fr')">Français</li>
+                    </div>
+                </div>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-bg-solid">
-            <div class="geometric-pattern"></div>
-        </div>
-        <div class="container hero-inner">
-            <div class="hero-text-box fade-in-up">
-                <div class="badge"><i class="fas fa-star-and-crescent"></i> BISMILLAH HIR RAHMAN NIR RAHEEM</div>
-                <h1 class="main-heading">Excellence in <span class="highlight-gold">Islamic & Modern</span> Education
-                </h1>
-                <p class="hero-desc">Madrasa Arabiyya Taleem Ul Quran for Boys & Girls. A prestigious institution
-                    dedicated to building and nurturing the new generation in the light of the Quran and Sunnah.</p>
-
-                <div class="hero-action">
-                    <a href="#donate" class="btn btn-primary"><i class="fas fa-heart"></i> Make a Donation</a>
-                    <a href="#videos" class="btn btn-secondary"><i class="fas fa-play-circle"></i> Watch Media</a>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="hero-text" data-aos="fade-up">
+                    <div class="badge" data-i18n="hero_badge">Bismillah Hir Rahman Nir Raheem</div>
+                    <h1 data-i18n="hero_title">Excellence in Islamic & Modern Education</h1>
+                    <p data-i18n="hero_desc">Developing the future generation with the light of Quranic wisdom and modern academic excellence.</p>
+                    <div class="hero-btns">
+                        <a href="#donate" class="btn btn-primary" data-i18n="hero_btn_donate">Support Our Mission</a>
+                        <a href="#fatwa" class="btn btn-glass" data-i18n="hero_btn_fatwa">Ask a Question</a>
+                    </div>
+                </div>
+                <div class="hero-stats" data-aos="fade-left">
+                    <div class="stat-card">
+                        <h3 class="counter" data-target="850">0</h3>
+                        <p data-i18n="stat_students">Students Enrolled</p>
+                    </div>
+                    <div class="stat-card gold">
+                        <h3 class="counter" data-target="45">0</h3>
+                        <p data-i18n="stat_staff">Expert Staff</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="counter" data-target="15">0</h3>
+                        <p data-i18n="stat_programs">Educational Programs</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="modern-section bg-light">
-        <div class="container block-grid">
-            <div class="text-content reveal-left">
-                <h4 class="sub-heading">Institution Profile</h4>
-                <h2 class="section-title">A Radiant Path of <span class="highlight-primary">Quran & Sunnah</span></h2>
-                <div class="divider"></div>
-                <p class="lead-text">Alhamdulillah, Madrasa Arabiyya Taleem Ul Quran is a magnificent religious
-                    institution spreading the light of knowledge in society. We equip both male and female students with
-                    modern and religious education focusing on moral excellence.</p>
-
-                <div class="feature-box">
-                    <div class="f-icon"><i class="fas fa-book-open"></i></div>
-                    <div class="f-text">
-                        <h3>Hifz Education System</h3>
-                        <p>Our young Hafiz students excel in modern Arabic conversation, public speaking, and practical
-                            moral training.</p>
+        <!-- Intro Section -->
+        <section id="about" class="intro section">
+            <div class="container grid-2">
+                <div class="intro-image" data-aos="reveal-right">
+                    <img src="https://images.unsplash.com/photo-1582213713014-998859e933e4?q=80&w=1000&auto=format&fit=crop" alt="Education" class="img-main">
+                    <div class="experience-badge">
+                        <span>25+</span>
+                        <p data-i18n="years_exp">Years of Excellence</p>
                     </div>
                 </div>
-
-                <div class="goals-container">
-                    <h3><i class="fas fa-bullseye"></i> Future Objectives</h3>
-                    <ul class="fancy-list">
-                        <li>Construction of modern classrooms and expanding hostel facilities.</li>
-                        <li>Dignified and secure educational arrangements for female students.</li>
-                        <li>Establishment of modern technology centers alongside religious studies.</li>
-                        <li>Implementing a highly organized educational system modeled after Jamia Ashrafia Lahore.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="video-presentation reveal-right">
-                <div class="presentation-card">
-                    <div class="card-icon">
-                        <i class="fas fa-film"></i>
+                <div class="intro-text" data-aos="fade-up">
+                    <h4 class="sub" data-i18n="about_sub">Our Institution</h4>
+                    <h2 data-i18n="about_title">Building Character, <span class="accent">Spreading Light</span></h2>
+                    <p data-i18n="about_p1">Madrasa Arabiyya Taleem Ul Quran is not just a building; it is a movement dedicated to nurturing the souls of young boys and girls. We provide a safe, modern, and spiritually uplifting environment.</p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-i18n="feat_1">Quran & Hadith Focus</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-i18n="feat_2">Modern Arabic Conversation</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-i18n="feat_3">Separate Secure Campuses</span>
+                        </div>
                     </div>
-                    <h3>Madrasa Documentary</h3>
-                    <p>Take a detailed tour to understand our vision, achievements and infrastructure.</p>
-                    <a href="https://www.facebook.com/share/v/1B3EWtbgCr/" target="_blank"
-                        class="btn btn-primary btn-block">
-                        <i class="fas fa-play"></i> Watch Full Documentary
-                    </a>
+                    <a href="#" class="btn btn-outline" data-i18n="about_btn">Read More About Us</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Video Showcase Section -->
-    <section id="videos" class="modern-section">
-        <div class="container">
-            <div class="text-center mb-5 reveal-up">
-                <h4 class="sub-heading">Media Gallery</h4>
-                <h2 class="section-title">Programs & <span class="highlight-gold">Ceremonies</span></h2>
-                <div class="divider center-div"></div>
-                <p class="sect-desc">Explore the distinct talents of our students and our faith-inspiring annual events.
-                </p>
-            </div>
-
-            <div class="elegant-video-grid">
-
-                <!-- Video Item 1 -->
-                <div class="elegant-vid-container reveal-up">
-                    <div class="vid-header">
-                        <h3><i class="fas fa-video"></i> Hifz Education Introduction</h3>
-                    </div>
-                    <div class="vid-body">
-                        <p>Young students (Shafi Ullah, Rafi Ullah) in an Arabic interview with host Irfan Ullah. A
-                            testament to their spoken Arabic proficiency.</p>
-                        <a href="https://www.facebook.com/share/v/176uaCfzAp/" target="_blank" class="watch-link">
-                            <i class="fab fa-facebook-square"></i> Watch Video
-                        </a>
-                    </div>
+        <!-- Fatwa Section -->
+        <section id="fatwa" class="fatwa section bg-alt">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h4 class="sub" data-i18n="fatwa_sub">Ask the Experts</h4>
+                    <h2 data-i18n="fatwa_title">Online Shariah Consultancy</h2>
+                    <p data-i18n="fatwa_desc">Get authentic guidance on your everyday issues from our qualified Muftis.</p>
                 </div>
-
-                <!-- Video Item 2 -->
-                <div class="elegant-vid-container reveal-up" style="transition-delay: 0.1s;">
-                    <div class="vid-header">
-                        <h3><i class="fas fa-video"></i> Outstanding Arabic Speech</h3>
-                    </div>
-                    <div class="vid-body">
-                        <p>A passionate and fluent Arabic speech delivered completely by a very young student of the
-                            Hifz Education department.</p>
-                        <a href="https://www.facebook.com/share/v/1C4xuMu7vq/" target="_blank" class="watch-link">
-                            <i class="fab fa-facebook-square"></i> Watch Video
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video Item 3 -->
-                <div class="elegant-vid-container reveal-up" style="transition-delay: 0.2s;">
-                    <div class="vid-header">
-                        <h3><i class="fas fa-video"></i> Akhlaq Al-Hasanah Presentation</h3>
-                    </div>
-                    <div class="vid-body">
-                        <p>An excellent presentation on the topic of good morals by student Samin Ul Haq bin Aman Khan
-                            from the Hifz department.</p>
-                        <a href="https://www.facebook.com/share/v/17MV7BpzYR/" target="_blank" class="watch-link">
-                            <i class="fab fa-facebook-square"></i> Watch Video
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video Item 4 -->
-                <div class="elegant-vid-container reveal-up" style="transition-delay: 0.3s;">
-                    <div class="vid-header">
-                        <h3><i class="fas fa-video"></i> Impressions of Hazrat Mufti Abu Muhammad</h3>
-                    </div>
-                    <div class="vid-body">
-                        <p>A detailed visit of the Madrasa facilities followed by an exclusive and inspiring talk.</p>
-                        <a href="https://www.facebook.com/share/v/182n1zvhK8/" target="_blank" class="watch-link">
-                            <i class="fab fa-facebook-square"></i> Watch Video
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video Item 5 -->
-                <div class="elegant-vid-container reveal-up" style="transition-delay: 0.4s;">
-                    <div class="vid-header">
-                        <h3><i class="fas fa-video"></i> Annual Khatam-e-Quran</h3>
-                    </div>
-                    <div class="vid-body">
-                        <p>Beautiful and luminous highlights gathered from the annual Khatam-e-Quran and Bukhari
-                            completion program.</p>
-                        <a href="https://www.facebook.com/share/v/1FNuXaVFHP/" target="_blank" class="watch-link">
-                            <i class="fab fa-facebook-square"></i> Watch Video
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Donations Section (Premium Design) -->
-    <section id="donate" class="modern-section donation-area">
-        <div class="container relative-z">
-            <div class="donation-header reveal-up">
-                <h2>Charity & Donations</h2>
-                <div class="divider center-div light-div"></div>
-                <p>Support the education of deserving students. Your contribution heavily impacts the construction and
-                    daily expenses of the Madrasa.</p>
-            </div>
-
-            <div class="fintech-cards">
-
-                <!-- EasyPaisa Block -->
-                <div class="account-block easypaisa reveal-up">
-                    <div class="acc-top">
-                        <h4>EasyPaisa Account</h4>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Easypaisa_logo.png"
-                            alt="Easypaisa" class="bank-logo">
-                    </div>
-                    <div class="acc-number">
-                        <img src="easypaisa-logo.jpg" alt="EP" class="inline-logo">
-                        0344 1554 498
-                    </div>
-                    <div class="acc-name">Madrasa Trust Account</div>
-                    <button class="btn btn-transfer" onclick="processDonation('Easypaisa', '03441554498')">
-                        Confirm Transfer <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <!-- JazzCash Block -->
-                <div class="account-block jazzcash reveal-up" style="transition-delay: 0.2s;">
-                    <div class="acc-top">
-                        <h4>JazzCash Account</h4>
-                        <h3 class="jazz-text"
-                            style="color:#d50000; font-family: Poppins; font-weight:800; font-size:1.5rem; margin:0;">
-                            JazzCash</h3>
-                    </div>
-                    <div class="acc-number">
-                        <img src="jazz-logo.jpg" alt="JC" class="inline-logo" style="height: 35px;">
-                        0306 1554 498
-                    </div>
-                    <div class="acc-name">Madrasa Trust Account</div>
-                    <button class="btn btn-transfer" onclick="processDonation('JazzCash', '03061554498')">
-                        Confirm Transfer <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <!-- Bank Block -->
-                <div class="account-block regular-bank reveal-up" style="transition-delay: 0.4s;">
-                    <div class="acc-top">
-                        <h4>Bank Accounts</h4>
-                        <i class="fas fa-university" style="font-size: 1.5rem; color: #0a3d2e;"></i>
-                    </div>
-                    <div class="acc-number" style="font-size: 1.3rem;">Meezan / Allied Bank</div>
-                    <div class="acc-name">Contact direct management</div>
-                    <button class="btn btn-transfer"
-                        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-                        View Contact <i class="fas fa-phone"></i>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Interactive Donation Modal -->
-    <div class="modern-modal" id="donationModal">
-        <div class="modal-box">
-            <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
-            <div class="modal-header">
-                <i class="fas fa-check-circle secure-icon"></i>
-                <h3 id="paymentGatewayName">Secure Transfer</h3>
-            </div>
-
-            <div class="payment-steps" id="step1">
-                <p class="instruction">Did you send the money to the following number?</p>
-                <div class="copy-box" onclick="copyNumber()">
-                    <span id="paymentNumber"></span>
-                    <i class="fas fa-copy" title="Copy Number"></i>
-                </div>
-                <span class="copied-tooltip" id="copiedTooltip">Copied to clipboard!</span>
-
-                <form id="proDonationForm" class="pro-form">
-                    <div class="input-group">
-                        <label>Your Name</label>
-                        <input type="text" placeholder="e.g. John Doe" required autocomplete="off">
-                    </div>
-                    <div class="input-group">
-                        <label>Amount Transferred (PKR)</label>
-                        <input type="number" placeholder="0" required autocomplete="off">
-                    </div>
-                    <button type="submit" class="cyber-btn">
-                        Submit Confirmation
-                    </button>
-                </form>
-            </div>
-
-            <div class="payment-steps hidden" id="step2">
-                <h2 class="ar-pray">Jazakallah Khairan</h2>
-                <div class="divider center-div"></div>
-                <p class="thx-msg">Your confirmation has been submitted successfully. May Allah accept your contribution
-                    and reward you immensely in this world and the hereafter.</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top:20px;" onclick="closeModal()">Close
-                    Window</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <footer id="contact" class="premium-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img src="logo.jpeg" alt="Logo" class="foot-logo"
-                        onerror="this.src='https://via.placeholder.com/100?text=Logo'">
-                    <h2>Madrasa Arabiyya</h2>
-                    <p>The foremost center for the propagation of Islamic education. Nagar Lasht, Drosh Chitral.</p>
-                    <div class="social-circles">
-                        <a href="https://www.facebook.com/share/1CFgXdtrns/" target="_blank" class="social-fb"
-                            title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://wa.me/923249955854" target="_blank" class="social-wa" title="WhatsApp"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="#" target="_blank" class="social-x" title="X (Twitter)"><i
-                                class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" target="_blank" class="social-ig" title="Instagram"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" class="social-yt" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" target="_blank" class="social-in" title="LinkedIn"><i
-                                class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#videos">Media Programs</a></li>
-                        <li><a href="#donate">Donations</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-contact">
-                    <h3>Get In Touch</h3>
-                    <ul class="contact-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Nagar Lasht, Drosh Chitral, Khyber Pakhtunkhwa, Pakistan</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <div class="phone-nums">
-                                +92 324 9955854 <br>
-                                +92 345 9555854
+                <div class="fatwa-grid grid-2">
+                    <div class="fatwa-form-container" data-aos="fade-right">
+                        <form id="fatwaForm" class="glass-form">
+                            <div class="form-group">
+                                <label data-i18n="label_name">Full Name</label>
+                                <input type="text" data-i18n-placeholder="ph_name" placeholder="Enter your name" required>
                             </div>
-                        </li>
-                    </ul>
+                            <div class="form-group">
+                                <label data-i18n="label_email">Email / Phone</label>
+                                <input type="text" data-i18n-placeholder="ph_contact" placeholder="How should we reach you?" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="label_question">Your Question</label>
+                                <textarea rows="5" data-i18n-placeholder="ph_question" placeholder="Ask your question here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full" data-i18n="fatwa_submit">Submit My Question</button>
+                        </form>
+                    </div>
+                    <div class="fatwa-faq" data-aos="fade-left">
+                        <div class="faq-item active">
+                            <div class="faq-q" data-i18n="faq_q1">What is the importance of Islamic education for children?</div>
+                            <div class="faq-a" data-i18n="faq_a1">Islamic education provides the moral compass and foundation for a child's life, ensuring success in both worlds.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-q" data-i18n="faq_q2">How can I enroll my child in the Hifz program?</div>
+                            <div class="faq-a" data-i18n="faq_a2">You can visit our campus or fill out the online admission form available on our service portal.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-q" data-i18n="faq_q3">Does the Madrasa provide modern English education?</div>
+                            <div class="faq-a" data-i18n="faq_a3">Yes, we integrate modern school subjects with religious curriculum to ensure balanced growth.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="footer-bottom">
-                <div class="fb-inner">
-                    <p>&copy; <span id="currentYear"></span> Madrasa Arabiyya Taleem Ul Quran. All rights reserved.</p>
-                    <p class="developer">Crafted with <i class="fas fa-heart"></i> & Excellence</p>
+        <!-- Staff Section -->
+        <section id="staff" class="staff section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h4 class="sub" data-i18n="staff_sub">Our Leadership</h4>
+                    <h2 data-i18n="staff_title">Dedicated Staff & Scholars</h2>
+                    <p data-i18n="staff_desc">The backbone of our institution, dedicated to the service of knowledge.</p>
+                </div>
+                <div class="staff-grid">
+                    <div class="staff-card" data-aos="zoom-in">
+                        <div class="staff-img">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop" alt="Staff">
+                            <div class="social-overlay">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                        <div class="staff-info">
+                            <h3 data-i18n="staff_1_name">Hazrat Maulana Muhammad</h3>
+                            <p data-i18n="staff_1_role">Principal & Patron in Chief</p>
+                        </div>
+                    </div>
+                    <div class="staff-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="staff-img">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop" alt="Staff">
+                            <div class="social-overlay">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                        <div class="staff-info">
+                            <h3 data-i18n="staff_2_name">Mufti Abdullah Khan</h3>
+                            <p data-i18n="staff_2_role">Head of Fatwa Department</p>
+                        </div>
+                    </div>
+                    <div class="staff-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="staff-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Staff">
+                            <div class="social-overlay">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                        <div class="staff-info">
+                            <h3 data-i18n="staff_3_name">Qari Safdar Ali</h3>
+                            <p data-i18n="staff_3_role">Administrator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section id="donate" class="donation section">
+            <div class="container">
+                <div class="donate-wrapper">
+                    <div class="donate-text" data-aos="fade-up">
+                        <h2 data-i18n="donate_title">Support Our Students</h2>
+                        <p data-i18n="donate_desc">Your donation pays for textbooks, food, and facilities for hundreds of students.</p>
+                        <div class="donation-options">
+                            <div class="opt active" onclick="selectAmount(1000)">1000 PKR</div>
+                            <div class="opt" onclick="selectAmount(5000)">5000 PKR</div>
+                            <div class="opt" onclick="selectAmount(10000)">10000 PKR</div>
+                            <div class="opt-custom">
+                                <input type="number" data-i18n-placeholder="ph_custom" placeholder="Custom Amount">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg" onclick="openPaymentModal()" data-i18n="donate_btn_now">Donate Now</button>
+                    </div>
+                    <div class="donate-methods" data-aos="fade-left">
+                        <div class="method-card">
+                            <img src="easypaisa-logo.jpg" alt="Easypaisa">
+                            <div class="method-info">
+                                <h4>Easypaisa</h4>
+                                <p class="number">0344 1554 498</p>
+                            </div>
+                        </div>
+                        <div class="method-card">
+                            <img src="jazz-logo.jpg" alt="JazzCash">
+                            <div class="method-info">
+                                <h4>JazzCash</h4>
+                                <p class="number">0306 1554 498</p>
+                            </div>
+                        </div>
+                        <div class="method-card bank">
+                            <i class="fas fa-university"></i>
+                            <div class="method-info">
+                                <h4>Bank Account</h4>
+                                <p data-i18n="bank_info">Allied Bank / Meezan Bank</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <img src="logo.jpeg" alt="Logo" class="foot-logo">
+                <h3 data-i18n="footer_brand">Madrasa Arabiyya</h3>
+                <p data-i18n="footer_desc">Propagation of Islamic education with modern standards since 2001.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_links">Quick Links</h4>
+                <div class="foot-links">
+                    <a href="#home" data-i18n="nav_home">Home</a>
+                    <a href="#about" data-i18n="nav_about">About</a>
+                    <a href="#staff" data-i18n="nav_staff">Staff</a>
+                    <a href="#donate" data-i18n="nav_donate">Donate</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_contact">Contact Us</h4>
+                <div class="foot-contact">
+                    <p><i class="fas fa-map-marker-alt"></i> Nagar Lasht, Drosh Chitral</p>
+                    <p><i class="fas fa-phone"></i> +92 324 9955854</p>
+                    <p><i class="fas fa-envelope"></i> info@madrasaarabiyya.edu</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container flex-between">
+                <p>&copy; <span id="year"></span> Madrasa Arabiyya. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'ur,ar,en,ps', // Urdu, Arabic, English, Pashto
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript"
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+            <div class="modal-header">
+                <h3 data-i18n="modal_title">Confirm Your Donation</h3>
+            </div>
+            <div class="modal-body">
+                <p data-i18n="modal_p">Please send your donation to the following account and enter your details below.</p>
+                <div class="selected-method-display">
+                    <span id="selected-method-name">Easypaisa</span>: <span id="selected-method-number">0344 1554 498</span>
+                </div>
+                <form id="donationConfirmForm">
+                    <div class="form-group">
+                        <label data-i18n="label_name">Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="label_amount">Amount PKR</label>
+                        <input type="number" id="modal-amount-input" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full" data-i18n="confirm_submit">I Have Sent the Money</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <!-- Scripts -->
+    <script src="locales.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
