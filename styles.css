@@ -1,6 +1,6 @@
 /* 
     MADRASA ARABIYYA DIGITAL PORTAL
-    PREMIUM CSS DESIGN SYSTEM
+    PREMIUM DESIGN SYSTEM - V2.0
 */
 
 :root {
@@ -13,23 +13,35 @@
     --text-light: #64748b;
     --bg: #ffffff;
     --bg-alt: #f8fafc;
-    --glass: rgba(255, 255, 255, 0.8);
+    --glass: rgba(255, 255, 255, 0.85);
     --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
     --radius-sm: 8px;
     --radius-md: 12px;
-    --radius-lg: 20px;
+    --radius-lg: 24px;
 }
 
-/* RTL Specific Fonts */
-[lang="ur"] {
+/* RTL & Font Management */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+/* Urdu - Jameel Noori Nastaleeq */
+[lang="ur"], [lang="ur"] * {
     font-family: 'Jameel Noori Nastaleeq', 'Outfit', sans-serif !important;
 }
 
-[lang="ar"] {
-    font-family: 'Noto Naskh Arabic', sans-serif !important;
-    line-height: 1.8;
+[lang="ur"] body {
+    line-height: 2 !important;
 }
+
+/* Arabic - Modern Naskh */
+[lang="ar"], [lang="ar"] * {
+    font-family: 'Noto Naskh Arabic', sans-serif !important;
+}
+
+[lang="ar"] body {
+    line-height: 1.8 !important;
+}
+
 
 /* Reset & Base */
 * {
