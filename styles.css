@@ -14,11 +14,25 @@
     --bg: #ffffff;
     --bg-alt: #f8fafc;
     --glass: rgba(255, 255, 255, 0.85);
-    --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 24px;
+    --shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.12);
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 32px;
+}
+
+/* Typography Enhancements for Premium Look */
+body {
+    letter-spacing: 0.015em; /* Subtle spacing for better readability */
+    word-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Latin specific spacing */
+[lang="en"], [lang="fr"] {
+    letter-spacing: 0.03em;
+    word-spacing: 0.1em;
 }
 
 /* RTL & Font Management */
@@ -30,7 +44,8 @@
 }
 
 [lang="ur"] body {
-    line-height: 2.2 !important; /* Nastaleeq needs extra vertical space */
+    line-height: 2.4 !important; /* Even more space for Nastaleeq elegance */
+    word-spacing: 0.15em !important;
 }
 
 /* Arabic - Modern Naskh */
@@ -73,7 +88,7 @@ body.loading {
 }
 
 .section {
-    padding: 100px 0;
+    padding: 140px 0; /* More generous vertical spacing between sections */
 }
 
 .bg-alt {
@@ -297,17 +312,19 @@ img {
 }
 
 .hero-text h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
-    margin-bottom: 20px;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.15;
+    margin-bottom: 30px;
     font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
-    opacity: 0.8;
-    margin-bottom: 40px;
-    max-width: 600px;
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 50px;
+    max-width: 650px;
+    line-height: 1.6;
 }
 
 .hero-btns {
