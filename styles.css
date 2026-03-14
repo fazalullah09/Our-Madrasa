@@ -24,13 +24,13 @@
 /* RTL & Font Management */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 
-/* Urdu - Jameel Noori Nastaleeq */
+/* Urdu - Jameel Noori Nastaliq (Official CDN Name) */
 [lang="ur"], [lang="ur"] * {
-    font-family: 'Jameel Noori Nastaleeq', 'Outfit', sans-serif !important;
+    font-family: 'JameelNooriNastaliq', 'Outfit', sans-serif !important;
 }
 
 [lang="ur"] body {
-    line-height: 2 !important;
+    line-height: 2.2 !important; /* Nastaleeq needs extra vertical space */
 }
 
 /* Arabic - Modern Naskh */
